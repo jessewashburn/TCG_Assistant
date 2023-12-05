@@ -1,4 +1,3 @@
-TCG Assistant
 TCG Assistant is a Flutter-based mobile application designed to assist players of Trading Card Games (TCGs) with various utilities such as dice rolling, coin flipping, and life point tracking. This README provides an overview of the app, its features, and how to get started with the codebase. It works well on Android, but has not been tested on iOS. Feedback is welcome on this. 
 
 **Features**
