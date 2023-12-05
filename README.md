@@ -11,6 +11,7 @@ Sound Settings: Toggle sound effects on/off.
 **Getting Started**
 
 To get started with the TCG Assistant app codebase, follow these steps:
+
 Prerequisites:
 
 Flutter: Make sure you have Flutter installed. You can download it from the official Flutter website: https://docs.flutter.dev/get-started/install
