@@ -27,6 +27,7 @@ Install the app's dependencies:
 flutter pub get
 
 **Running the App**
+
 You can run the app on an emulator or physical device. Use the following command to start the app:
 flutter run
 
