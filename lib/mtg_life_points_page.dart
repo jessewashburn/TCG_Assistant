@@ -18,8 +18,10 @@ class _MTGLifePointsPageState extends State<MTGLifePointsPage> {
   int player2LifePoints = 20; // Initial life points for Player 2
 
   /// Controllers for text fields to edit player names.
-  TextEditingController player1HeadingController = TextEditingController(text: 'Player 1');
-  TextEditingController player2HeadingController = TextEditingController(text: 'Player 2');
+  TextEditingController player1HeadingController =
+  TextEditingController(text: 'Player 1');
+  TextEditingController player2HeadingController =
+  TextEditingController(text: 'Player 2');
 
   /// FocusNodes to manage focus on the text fields.
   FocusNode player1FocusNode = FocusNode();
@@ -31,12 +33,16 @@ class _MTGLifePointsPageState extends State<MTGLifePointsPage> {
     /// Listeners to select all text in text field when focused.
     player1FocusNode.addListener(() {
       if (player1FocusNode.hasFocus) {
-        player1HeadingController.selection = TextSelection(baseOffset: 0, extentOffset: player1HeadingController.text.length);
+        player1HeadingController.selection = TextSelection(
+            baseOffset: 0,
+            extentOffset: player1HeadingController.text.length);
       }
     });
     player2FocusNode.addListener(() {
       if (player2FocusNode.hasFocus) {
-        player2HeadingController.selection = TextSelection(baseOffset: 0, extentOffset: player2HeadingController.text.length);
+        player2HeadingController.selection = TextSelection(
+            baseOffset: 0,
+            extentOffset: player2HeadingController.text.length);
       }
     });
   }
@@ -97,9 +103,11 @@ class _MTGLifePointsPageState extends State<MTGLifePointsPage> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Spacer(),
-          _buildLifePointsSection(player1HeadingController, player1LifePoints, incrementLifePointsPlayer1, decrementLifePointsPlayer1),
+          _buildLifePointsSection(player1HeadingController, player1LifePoints,
+              incrementLifePointsPlayer1, decrementLifePointsPlayer1),
           SizedBox(height: 32),
-          _buildLifePointsSection(player2HeadingController, player2LifePoints, incrementLifePointsPlayer2, decrementLifePointsPlayer2),
+          _buildLifePointsSection(player2HeadingController, player2LifePoints,
+              incrementLifePointsPlayer2, decrementLifePointsPlayer2),
           Spacer(),
         ],
       ),
@@ -107,14 +115,31 @@ class _MTGLifePointsPageState extends State<MTGLifePointsPage> {
   }
 
   /// Builds a section for managing the life points of a player.
-  Widget _buildLifePointsSection(TextEditingController headingController, int lifePoints, Function increment, Function decrement) {
+  Widget _buildLifePointsSection(TextEditingController headingController,
+      int lifePoints, Function increment, Function decrement) {
     return Column(
       children: <Widget>[
-        TextFormField(
-          maxLength: 10,
-          controller: headingController,
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
-          textAlign: TextAlign.center,
+        GestureDetector(
+          onTap: () {
+            FocusScope.of(context).requestFocus(
+                headingController == player1HeadingController
+                    ? player1FocusNode
+                    : player2FocusNode);
+          },
+          child: TextFormField(
+            maxLength: 10,
+            controller: headingController,
+            style: TextStyle(
+                fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+            textAlign: TextAlign.center,
+            onTap: () {
+              Future.delayed(
+                  Duration.zero,
+                      () => headingController.selection = TextSelection(
+                      baseOffset: 0,
+                      extentOffset: headingController.text.length));
+            },
+          ),
         ),
         SizedBox(height: 8),
         Row(
