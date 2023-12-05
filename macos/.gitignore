@@ -1,0 +1,72 @@
+# Flutter-related
+**/Flutter/ephemeral/
+**/Pods/
+
+# Xcode-related
+**/dgph
+**/xcuserdata/
+
+# Flutter/Dart-related
+.dart_tool/
+dartpad/
+flutter_build/
+package_config.json
+package_config_subset
+version
+
+# IDE-related (IntelliJ IDEA)
+.idea/
+libraries/
+runConfigurations/
+misc.xml
+modules.xml
+vcs.xml
+workspace.xml
+
+# Gradle (Android build tool)
+android/.gradle/
+android/app/build/
+android/gradle/
+android/gradle-wrapper.properties
+android/gradle-wrapper.jar
+
+# Android build output
+android/app/build/
+
+# Xcode (iOS build tool)
+ios/.xcodeproj/
+ios/.xcworkspace/
+ios/Runner.xcodeproj/
+ios/Runner.xcworkspace/
+ios/RunnerTests/
+ios/Pods/
+ios/DerivedData/
+ios/.generated/
+
+# Android Studio (Flutter/Dart IDE)
+.android/
+.flutter-plugins/
+.flutter-plugins-dependencies/
+.metadata/
+pubspec.lock
+pubspec.yaml
+
+# Visual Studio Code (VSCode) IDE
+.vscode/
+.vscode/settings.json
+
+# macOS-specific
+macos/Flutter/
+macos/Runner.xcodeproj/
+macos/Runner.xcworkspace/
+macos/RunnerTests/
+
+# Windows-specific
+windows/.flutter-plugins
+windows/.flutter-plugins-dependencies
+windows/.metadata
+
+# Linux-specific
+linux/CMakeLists.txt
+linux/my_application.cc
+linux/my_application.h
