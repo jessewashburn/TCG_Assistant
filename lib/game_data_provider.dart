@@ -43,7 +43,7 @@ class GameData with ChangeNotifier {
     notifyListeners();
   }
 
-  /// Increments the win count for Player 1 in Yu-Gi-Oh and resets the match if they reach 2 wins.
+  /// Increments the win count for Player 1 in Yu-Gi-Oh.
   void incrementWinsYuGiOhPlayer1() {
     player1WinsYuGiOh++;
     notifyListeners();
@@ -55,7 +55,7 @@ class GameData with ChangeNotifier {
     }
   }
 
-  /// Increments the win count for Player 2 in Yu-Gi-Oh and resets the match if they reach 2 wins.
+  /// Increments the win count for Player 2 in Yu-Gi-Oh.
   void incrementWinsYuGiOhPlayer2() {
     player2WinsYuGiOh++;
     notifyListeners();
@@ -101,6 +101,7 @@ class GameData with ChangeNotifier {
   void resetMTGMatch() {
     player1WinsMTG = 0;
     player2WinsMTG = 0;
+    resetMTGLifePoints();
   }
 
   /// Resets the life points for both players in Yu-Gi-Oh back to the starting points.
@@ -113,5 +114,6 @@ class GameData with ChangeNotifier {
   void resetYuGiOhMatch() {
     player1WinsYuGiOh = 0;
     player2WinsYuGiOh = 0;
+    resetYuGiOhLifePoints();
   }
 }
