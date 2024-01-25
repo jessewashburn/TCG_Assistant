@@ -100,7 +100,6 @@ class CommonDrawer extends StatelessWidget {
               ],
             ),
           ),
-          _buildDrawerItem(context, 'Home', LandingPage.routeName),
           _buildDrawerItem(context, 'Dice Roller', DicePage.routeName),
           _buildDrawerItem(context, 'Coin Flipper', CoinFlipper.routeName),
           _buildDrawerItem(context, 'MTG Life Points', MTGLifePointsPage.routeName),

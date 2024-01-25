@@ -10,6 +10,7 @@ import 'coin_flipper.dart';
 import 'sound_settings_provider.dart';
 import 'settings_page.dart';
 import 'landing_page.dart';
+import 'game_data_provider.dart';
 
 /// Main entry point for the application.
 ///
@@ -18,9 +19,13 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final soundSettingsProvider = SoundSettingsProvider();
   await soundSettingsProvider.loadMuteState();
+
   runApp(
-    ChangeNotifierProvider.value(
-      value: soundSettingsProvider,
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => GameData()), // Add GameData provider
+        ChangeNotifierProvider.value(value: soundSettingsProvider),
+      ],
       child: MyApp(soundSettingsProvider: soundSettingsProvider),
     ),
   );
@@ -30,24 +35,14 @@ void main() async {
 ///
 /// This widget sets up the MaterialApp and defines the routes for the app.
 class MyApp extends StatelessWidget {
-  /// Provider for sound settings, managing mute state.
   final SoundSettingsProvider soundSettingsProvider;
 
-  /// Constructor for MyApp.
-  ///
-  /// Takes an [AudioPlayer] and [SoundSettingsProvider] as parameters.
   MyApp({required this.soundSettingsProvider});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      /// Sets the initial route of the application to be the LandingPage.
       initialRoute: LandingPage.routeName,
-
-      /// Defines the routes and their corresponding widgets.
-      ///
-      /// Each route is mapped to a widget that should be displayed when
-      /// the route is navigated to.
       routes: {
         LandingPage.routeName: (context) => LandingPage(),
         DicePage.routeName: (context) => DicePage(soundSettingsProvider: soundSettingsProvider),
